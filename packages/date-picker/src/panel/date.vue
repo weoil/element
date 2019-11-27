@@ -96,6 +96,7 @@
               :value="value"
               :default-value="defaultValue ? new Date(defaultValue) : null"
               :date="date"
+              :get-tip="getTip"
               :disabled-date="disabledDate">
             </date-table>
             <year-table
@@ -126,7 +127,7 @@
           type="text"
           class="el-picker-panel__link-btn"
           @click="changeToNow"
-          v-show="selectionMode !== 'dates'">
+          v-show="selectionMode !== 'dates' && showCurrent">
           {{ t('el.datepicker.now') }}
         </el-button>
         <el-button
@@ -511,10 +512,12 @@
         defaultTime: null,
         showTime: false,
         selectionMode: 'day',
+        showCurrent: true,
         shortcuts: '',
         visible: false,
         currentView: 'date',
         disabledDate: '',
+        getTip: '',
         selectableRange: [],
         firstDayOfWeek: 7,
         showWeekNumber: false,

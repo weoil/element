@@ -846,7 +846,7 @@ export default {
           ranges = Array.isArray(ranges) ? ranges : [ranges];
           this.picker.selectableRange = ranges.map(range => parser(range, format, this.rangeSeparator));
         }
-
+        // 把options里的值传递给picker
         for (const option in options) {
           if (options.hasOwnProperty(option) &&
               // 忽略 time-picker 的该配置项
